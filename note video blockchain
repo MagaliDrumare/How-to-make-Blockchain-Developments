@@ -1,0 +1,400 @@
+
+Blockchain development on Devslopes 
+
+Video 5: Crypto 
+-> transaction sent to a P2P networks (nodes)
+-> miner : use computer's power to validate transaction on the blockchain. 
+-> the nodes must agree a single version of truth. 
+-> Proof of work = energy proof of compotutional power. 2015 one bitcoin transaction 1,6 day of a american household 
+-> Proof of stake = mining a % of transaction that is reflection the % of stacke of bitcoin. 
+-> Hashing algorithm is a digital fingerprint for the transaction. 256 characters long 
+-> When the transaction is validate : the block is appended to the blockchain. 
+-> Then the transaction is validated. 
+
+
+#Vidéo 6 : Blockchain developer
+->ICO initial coin offering. 
+->Ethereum most popular blockchaun 
+->Smart contract developpement 
+->Language : Solidity inspired by C++; Javascript, Python 
+-> Democratic distribution of the tokens among shareholders 
+-> DevslopesCoin 1ETH = 1000 devslopes Coin 
+-> If I invested 0.1 ETH, I will; get back 100 DSC
+-> Cryptocurrency exchange. 
+-> Bug Bounty : people can be paid to analyse the vulnerability of the system. 
+ICO one tiny part of the Blockchain 
+Saas model project can be developped using blockchain system. 
+
+
+#Vidéo 7 : What is solidity? 
+->Programming language inspired by C++; Javascript, Python. 
+->Used to generate small contracts 
+-> type address : 160-bit value perfect for storing Ethereum addresses of a contract. set as public 
+relevant multiple contract that can talk with each other. 
+-> type mapping : dictionnary accept key-value pair. 
+-> type event : can be fired from a function when a condition is met. 
+
+
+
+CERTIFIED NEM DEVELOPER 
+#Vidéo 1 : Installing NEM Nano Wallet 
+->nem.io : dowload the Nano Wallet
+
+Create and a Wallet : 
+-> Simple wallet 
+-> Select the Testnet 
+-> Name the wallet 
+-> Create a password 
+-> Start and generating the secret key with the movement of the mouse. 
+->Dowload wallet on the desktop. 
+-> Show raw wallet file and save the wallet key in the txt file. 
+-> Show the private Key and save it in a txt and encrypted this file. (higher level of security)
+--> you have to save you provate key and password! 
+
+Already a member : 
+->Select tyhe Wallet in local storage 
+Enter the password. 
+
+
+Enter in the Nano Wallet dashboard: 
+->Confirmed and Unconfirmed transaction. 
+-> Account : public adress 
+-> Send or receive XEM in order to generate a public key. 
+-> Change the node you are working with. 
+-> Services section to read. 
+
+
+#Vidéo 2 : Creating your own cryptocurrency 
+
+# First Transaction : 
+-> devslopes.build in your navigator : http://devslopes.build/
+-> Copy the adress of the section Account. 
+-> Paste it in adress. 
+-> Amount 250. 
+-> Clic Claim. 
+-> in the Nano Wallet, you will Unconfirmed transaction and then confirmed transaction. 
+
+# Go to services to create your own currency 
+step 1 -> Namespaces and Subdomains 
+-> Create a Namespace : Learning NEM. 
+-> There is a fee to create the namespace. 
+-> Password and Register. 
+
+step 2-> Create Mosaic 
+-> Give a Mosaic Name 
+-> Create Initial supply : 500000000
+-> Create Divisibility : 6 
+-> Collect Fee : Require Levy 
+-> Each time you made a transaction, you we'll gain the fee. 
+
+If you have done this you will have create a Crypto Currency. 
+->Send a transaction. 
+-> No need to code to create a cryptocurrency. 
+
+
+CERTIFIED ETHEREUM DEVLOPPER 
+
+#Video 2 : Basic types in Solidity 
+->Contract is very similar to a class in another language. 
+-> https://remix.ethereum.org
+pragma solidity ^0.4.17;
+
+contract MyContract{
+    string myString;
+    int myInteger=12; 
+    uint myUnsignedInteger=256;
+    bool myBoolean=true;
+    int[] dynamicIntArray=[1,2,3,5];
+    int[8] fixedSizeIntArray=[1,2,3,7,9,10,11,12];
+    
+}
+
+
+#Video 3 : Advanced type in solidity 
+pragma solidity ^0.4.17;
+
+contract MyContract{
+    address myAdress; 
+    
+    mapping(address=>uint)public balances;
+    
+    enum PizzaTopping{Peperroni, Cheese, Sauce, Olives}
+    PizzaTopping favoriteTopping;
+    
+    struct Campaign{
+        address beneficiary;
+        uint fundingGoal; 
+        uint numFunders,
+        uint amount;
+    }
+
+   uint numCampaigns: 
+   mapping(uint=>Campaign)campaigns;
+
+    function MyContract()public{
+        myAdress =msg.sender;
+        
+    }
+    
+    function setBalance(uint newBalance){
+    balances[msg.sender]=newBalance;
+    }
+    
+    function newCampaign(address beneficiary, uint goal) public returns(uint campaignID){
+        campaignID=numCampaigns++;
+        campaigns[campaignID]= Campaign(benificiary, fundingGoal,0,0);
+    }
+    
+}
+
+#Video 4 : Your first smart contract 
+
+# code 
+pragma solidity ^0.4.0;
+
+contract Contract{
+    
+    string name; 
+    
+    function Contract(string passName)public{
+        name=passName;
+    }
+    
+    function setName(string newName) public{
+        name=newName;
+    }
+    
+    function getName() public view returns(string) {
+        
+        return name;
+    }
+}
+
+# code 
+pragma solidity ^0.4.0;
+
+contract Contract{
+    
+    string public name; 
+    
+    function Contract(string passName)public{
+        name=passName;
+    }
+    
+    function setName(string newName) public{
+        name=newName;
+    }
+    
+}
+
+
+#Video  5 : Solidity Function Visibility Keywords 
+-> public vs private 
+-> anyone can access to a public function 
+-> code : 
+pragma solidity ^0.4.0;
+
+contract Contract{
+    
+    string public name; 
+    
+    function Contract(string passName)public{
+        name=passName;
+    }
+    
+    function setName(string newName) private{
+        name=newName;
+    }
+
+
+#Video 6 : Solidity Inheritance 
+pragma solidity ^0.4.0;
+
+contract Parent{
+   address parent;
+   string name; 
+   
+   function Parent() public {
+       parent = msg.sender;
+       name="Magali";
+   }
+}
+
+contract Child is Parent{
+   
+   function Child() public { }
+      function getParent() public view returns(address){
+          return parent;
+      }
+      function getParentName() public view returns(string){
+          return name;
+      }
+   }
+
+# Video 7 : Units & globally available variables 
+Solidity Documentation n
+http://solidity.readthedocs.io/en/latest/index.html
+->Ether Units 
+->Time Units 
+->Block and Transaction Properties 
+->Mathematical functions 
+->Address Related 
+
+
+# Video 8 : Installing Tools and dependencies 
+Install NPM, Truffle, Ganache.  
+-> Node package manager -> node JS download the 8.9.4 LST
+-> Install Truffle to deploy small contract -> open the terminal npm install -g truffle
+-> Run blockchain on our local blockchain with Ganache 
+-> npm install -g ganache-cli 
+necessary to test the smart contract because deploy on Ethereum is costly.
+
+
+# Video 9 : Setting Up projet Environnement 
+-> download atom 
+-> install solidity extension in atom 
+Atom/ Preferences/ Install/ Solidity 
+-> mkdir my-first-token
+-> cd my-first-token 
+-> truffle / web3 is the interface : interface with the smartcontract in the blockchain. 
+-> In install Zeppelin : garantee ERC standard for the token. 
+-> npm install zeppelin-solidity
+-> zeppelin-solidity in the node-modules
+-> /Users/magalidrumare/Desktop/Blockchain/my-first-token/node_modules/zeppelin-solidity/contracts/token/ERC20
+
+
+# Video 10 : Creating CoderToken Smart Contract 
+-> my-first-token/contracts/CoderToken.sol 
+-> msg.sender is the owner of the contract 
+
+pragma solidity ^0.4.17;
+
+# import Standard Token
+import "zeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
+
+# create CoderToken that inherits from StandardToken. 
+contract CoderToken is StandardToken {
+  string public name = 'CoderToken'; # as Bitcoin 
+  string public symbol = 'CT'; # as BT for Bitcoin 
+  uint8 public decimals = 18; # 18 places for the decimal
+  uint public INITIAL_SUPPLY = 15000; # initial supply
+
+# msg.send is the owner of the smart contract
+# CoderToken inherits from StandardToken that ineherits from BasicToken 
+# totalSupply_ and balances are 2 functions of BasicToken 
+  function CoderToken() public {
+    totalSupply_ = INITIAL_SUPPLY;
+    balances[msg.sender] = INITIAL_SUPPLY; 
+  }
+}
+
+
+# Video 11 : setting up Local Blockchain with Ganache. 
+http://truffleframework.com/ganache/
+# Ganache generate 10 Ethereum accounts
+-> ganache-cli 
+-> Available Accounts : generation of ten address.  
+-> Private Keys : of the ten accounts. 
+-> Listening on Localhost : 8545
+
+# In my-first-token, in file truffle.js : the port <=> Listening on Localhost : 8545
+module.exports = {
+  // See <http://truffleframework.com/docs/advanced/configuration>
+  // for more about customizing your Truffle configuration!
+  networks: {
+    development: {
+      host: "127.0.0.1",
+      port: 8545,
+      network_id: "*" // Match any network id
+    }
+  }
+};
+
+the projet will be deployed on this particular adress Localhost : 8545
+
+
+# Video 12 : Compiling and Deploying Smart Contract 
+-> in the file migrations of my-first-token 
+-> create 2_deploy_codertoken.js
+-> code of the javascript in 2_deploy_codertoken.js: 
+var CoderToken = artifacts.require('./CoderToken.sol');
+module.exports = function(deployer) {
+  deployer.deploy(CoderToken);
+}
+# deployer is a truffle function 
+
+--> Compilation of the contracts
+-> in the console cd my-first-token 
+-> truffle compile 
+-> creation of .json file in my-first-token / build/ contracts 
+-BasicToken.json
+-CoderToken.json 
+-ERC20.json 
+-ERC20Basic.json 
+-Migrations.json , etc....
+
+--> Migration of the contract on the blockchain. 
+-> in the console cd my-first-token.  
+-> truffle migrate. 
+-> the contract leaves at Coder Token : XXXXXXXXXXXXXXXXX (address).
+-> the amount of gas depends on the complexitry of the contract. 
+
+
+
+# Video 13 : Unit Testing Smart Contracts 
+-> First test of the smart contract deploy on the blockchain 
+-> Verify that the account is credited of 15000
+contract('CoderToken', function(accounts) {
+  it('Should put 15000 CoderToken in the first account', function() {
+    return CoderToken.deployed().then(function(instance) {
+      return instance.balanceOf.call(accounts[0]);
+    }).then(function(balance) {
+      assert.equal(balance.valueOf(), 15000, "15,000 CoderToken wasn't in the first acount.")
+    });
+  });
+  });
+  -> cd my-first-token 
+  -> truffle test
+  -> passing 
+
+
+# Video 14 : Installing and Configuring MetaMask 
+-> Metamask bring Ethereum to your browser. 
+-> private networks : localhost 8545 
+-> ganache-cli --> Mnemonic : XXXXX to paste in Wallet seed 
+
+# Vidéo 15 : Interacting with Dapp & Smart Contract 
+->in the console cd my-first-token 
+-> npm run dev 
+-> open the html make the transaction 
+-> process the result in Metamask 
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
