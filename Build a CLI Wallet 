@@ -1,0 +1,147 @@
+
+Build a CLI Wallet 
+
+## Video 1 : npm install -g cache-wallet
+-> run the app in the console : cache 
+-> Few command lines : 
+cache balance : gets you current wallet balance and public address
+
+
+## Video 2 : Setting up the developpement 
+
+# Dowload Webstorm javascript IDE 
+->In the console type 
+mkdir cli-app
+cd cli-app/ 
+webstorm .  -> Open cli-app with webstorm 
+
+# In cli-app folder create : 
+-> Create a new file index.ts ts for type script 
+-> Webstorm preferences 
+-> Language and framework select Typescript 
+-> Expand Typescript -> TSLint / check Enable 
+-> Create a new file tfConfig.json => configuration file for compiling the code. Import a pre-configured configuration. 
+-> Create new Directory src and bin folder 
+-> Drag index.ts in the scr folder 
+
+# Wikipedia : TypeScript est un langage de programmation libre et open source développé par Microsoft qui a pour but d'améliorer et de sécuriser la production de code JavaScript. C'est un sur-ensemble de JavaScript (c'est-à-dire que tout code JavaScript correct peut être utilisé avec TypeScript). Le code TypeScript est transcompilé en JavaScript, pouvant ainsi être interprété par n'importe quel navigateur web ou moteur JavaScript. Il a été cocréé par Anders Hejlsberg, principal inventeur de C# 1,2,3, 4,5.
+
+
+## Video 3 : NEM Library overview 
+-> Nem Archirecture 
+-> API Gate way server allows the connection with mobile APP
+https://nem.io/technology / asynchronous coonection 
+-> Install NEM Library : https://nemlibrary.com/#installation 
+in the console cd cli-app/ > npm install nem-library rxjs --save
+-> npm init 
+-> package name : cli-app
+-> version : 0.0.1
+-> description : 
+--> node_modules updated. 
+
+
+## Video 4 : Create your first wallet  
+# code in index.ts :
+import {NEMLibrary,Password,SimpleWallet} from 'nem-library'; 
+NEMLibrary.bootstrap(NetworkTypes.TEST_NET)
+
+const createSimpleWallet = (password: string): SimpleWallet=>{
+	
+	const pass= new Password(password); 
+	return SimpleWallet.create(name:'marks test wallet', pass);
+}; 
+
+ const firstWallet = createSimpleWallet('12mysimplewallet48');
+
+ console.log(firstWallet);
+
+ -> open the Terminal > cd cli-app/scr 
+ -> node index.js 
+ -> Creation of the SimpleWallet with 
+ address value: XXXXXXX and encryptedPrivateKey
+
+ # open the Wallet 
+ -> added to the code 
+ const myAccount=firstWallet.open(new Password(password: '12mysimplewallet48'))
+ console.log(myAccount);
+ -> run again node index.js 
+ -> Private and public keys 
+
+
+ ## Video 5 : Understanding wallets and keys 
+ npm install #types/node--save-dev 
+ an account is an address 
+ -> nodes-modules>nem-library>dist>src>models>wallet> SimpleWallet.js
+ Every private key will have a public key (pair of keys)
+ The public key is used to generate an address 
+ Private key is encrypted with the password 
+ -> Brain Wallet is more secured than the SimpleWallet 
+ Brain wallet derived the private key from the BrainPassword, hashing the BrainPassword multiple times. 
+
+
+## Video 6: Talking to the NEM blockchain 
+
+# https://nemlibrary.com/guide/account/
+How to receive all transactions for an account code : 
+
+import {AccountHttp, Address, NEMLibrary, NetworkTypes} from "nem-library";
+
+NEMLibrary.bootstrap(NetworkTypes.TEST_NET);
+
+const accountHttp = new AccountHttp();
+
+accountHttp.allTransactions(new Address("TCFFOM-Q2SBX7-7E2FZC-3VX43Z-TRV4ZN-TXTCGW-BM5J"))
+    .subscribe(allTransactions => {
+       console.log(allTransactions);
+    });
+
+# Implementation : 
+->Nano Wallet 
+->get the Nano Wallet adress XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+-> make transactions
+
+# Code in node index.js 
+-> AccountHttp is going to make http request over the NEM Blockchain 
+const accountHttp = new AccountHttp(); 
+accountHttp.allTransaction(newAdress(adress: XXXXXXXXXXXXXXXXXXXXXXXX'))
+.subscribe(next: allTrabsactions=> {
+	console.log(allTransactions);}); 
+
+ # open the Terminal > cd cli-app/scr 
+ -> node index.js 
+ to see all the transaction that occured on the blockchain. 
+
+ # MAIN_NET and paste a rich address. 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
