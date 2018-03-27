@@ -1,0 +1,90 @@
+Certified NEM Blockchain Developer 
+
+
+##Vidéo 1 : Installing NEM Nano Wallet 
+->nem.io : dowload the Nano Wallet
+
+Create and a Wallet : 
+-> Simple wallet 
+-> Select the Testnet 
+-> Name the wallet 
+-> Create a password 
+-> Start and generating the secret key with the movement of the mouse. 
+-> Dowload wallet on the desktop. 
+-> Show raw wallet file and save the wallet key in the txt file. 
+-> Show the private Key and save it in a txt and encrypted this file for a higher level of security)
+--> you have to save you private key and password! 
+
+Already a member : 
+->Select the Wallet in local storage 
+-> Enter the password. 
+
+
+Enter in the Nano Wallet dashboard: 
+-> Confirmed and Unconfirmed transaction. 
+-> Account : public adress 
+-> Send or receive XEM in order to generate a public key. 
+-> Change the node you are working with. 
+-> Services section to read. 
+ 
+## Vidéo 2 : How to get XEM ? 
+-> changelly.com Exchange cryptocurrency at the best rate 
+-> Copy the adress of the Nano wallet 
+-> Paste in XEM Address on the changelly.com page 
+-> Confirm and lmake payment 
+-> Open the lireCoin Wallet 
+-> Pay to : paste the address given by changelly.com
+-> Send and wait for the transaction on Changelly. 
+-> The account in Nano Wallet will be updated with the purshase. 
+
+##Vidéo 3 : Creating your own cryptocurrency 
+# First Transaction : 
+-> devslopes.build in your navigator : http://devslopes.build/
+-> Copy the adress of the section Account. 
+-> Paste it in adress. 
+-> Amount 250. 
+-> Clic Claim. 
+-> in the Nano Wallet, you will Unconfirmed transaction and then confirmed transaction. 
+
+# Go to services to create your own currency 
+step 1 -> Namespaces and Subdomains 
+-> Create a Namespace : Learning NEM. 
+-> There is a fee to create the namespace. 
+-> Password and Register. 
+
+step 2-> Create Mosaic 
+-> Give a Mosaic Name 
+-> Create Initial supply : 500000000
+-> Create Divisibility : 6 
+-> Collect Fee : Require Levy 
+-> Each time you made a transaction, y ou we'll gain the fee. 
+
+If you have done this you will have create a Crypto Currency. 
+->Send a transaction. 
+-> No need to code to create a cryptocurrency. 
+
+
+## Vidéo 4 : NEM Archirecture Overview 
+
+# Archirecture 
+Web App <- NEM Library written in TypeScript-API Gateway-> NEM NODE 
+
+ # NEM Super Node for speedy transactions.  
+-3,000,000 XEM in Managing Account 
+-Fast Internet (high bandwidth) 
+-CPU Requirements
+-Memory Requirements 
+-100% Uptime 
+
+ # Harvester 
+-> 10,000 Vested XEM 
+-> Collect fees on blocks after writing all the transaction in the Block. 
+
+# Delegating Harvesting. 
+Harvester delegate the mining to NEM super Node. 
+
+
+
+ 
+
+
